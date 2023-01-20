@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>wasm leet sample</title>
+</head>
+
+<body>
+  <div>
+    <input type="text" id="textInput" />
+    <p id="leetResult"></p>
+  </div>
+  <script type="module">
+    import init, { convert_leet } from "./pkg/wasm_leet_sample.js";
+
+    init().then((r) => {
+      console.log("Init: ", r);
+      console.log(convert_leet('hello world'));
+
+      document.querySelector("#textInput").addEventListener("input", (e) => {
+        document.querySelector("#leetResult").textContent = convert_leet(e.target.value);
+      })
+    });
+  </script>
+</body>
+
+</html>
